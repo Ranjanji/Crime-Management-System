@@ -1,0 +1,52 @@
+create table Crime(
+    crimeid int primary key AUTO_INCREMENT,
+    dateofcrime date not null,
+	description varchar(200) not null,
+	policeStationId  int not null,
+	detailDescription varchar(200) not null,
+	status varchar(20) not null	 
+);
+ insert into crime values(102 ,'2019-02-15','Theft',11,'three bikes','Sovled');
+
+create table Criminal(
+    criminalid int primary key AUTO_INCREMENT,
+	name varchar(255) not null,
+    age int not null,
+    gender varchar(10) not null,
+    address varchar(10) not null,
+	policeStationId  int not null,
+	policestationfirstarrestedid int not null,
+	mark varchar(255) not null
+);
+insert into criminal values(10 ,'Chaman',20,'Male','Chennai',12,12,'cut on face');
+ insert into criminal values(11 ,'Raju',25,'Male','Delhi',11,12,'Have One hand');
+
+
+create table criminalsofcrime(
+	criminalid int,
+    crimeid int,
+    foreign key (criminalid) references Criminal(criminalid),
+    foreign key (crimeid) references Crime(crimeid) 
+);
+insert into criminalsofcrime values(11,101);
+
+create table Victim(
+    victimid int primary key auto_increment,
+	name varchar(255) not null,
+    age int not null,
+    gender varchar(10) not null,
+    address varchar(10) not null 
+);
+
+create table VictimofCrime(
+    victimid int,
+    crimeid int,
+    foreign key (victimid) references Victim(victimid),
+    foreign key (crimeid) references Crime(crimeid)    
+);
+
+create table police_station(
+	policestationname varchar(255),
+    policestationid int 
+);
+
