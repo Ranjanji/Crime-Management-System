@@ -62,7 +62,11 @@ public class VictimsDto {
 
 	@Override
 	public String toString() {
-		return "VictimsOfCrimeDTO [name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address
-				+ ", description=" + description + "]";
+		
+		return "Victim's Name:- " + name +"\n"+
+				"Age:- " + age +"\n"+
+				"Gender:- " + gender +"\n"+
+				"Address:- " + address +"\n"+
+				"Description of Crime happend to Victim:- " + description +"\n";
 	}
 }

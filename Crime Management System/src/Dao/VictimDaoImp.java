@@ -10,7 +10,6 @@ import java.util.List;
 import Utility.DButil;
 import Dto.VictimsDto;
 import Exceptions.VictimExceptions;
-import Connection.ConnectionClass;
 
 public class VictimDaoImp implements VictimDao{
 
@@ -21,7 +20,7 @@ public class VictimDaoImp implements VictimDao{
 		
 		try(Connection conn=DButil.ProvideConnection()){
 			
-			PreparedStatement ps =  conn.prepareStatement("select v.name, v.age, v.gender, v.address, c.description from victimsofcrime vc inner join crime c inner join victim v on vc.victimid = v.victimid and c.crimeid = vc.crimeid where c.crimeid = ?;");
+			PreparedStatement ps =  conn.prepareStatement("select v.name, v.age, v.gender, v.address, c.description from victimofcrime vc INNER JOIN crime c INNER JOIN victim v ON vc.victimid = v.victimid AND c.crimeid = vc.crimeid where c.crimeid = ?;");
 			ps.setInt(1, crimeId);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {

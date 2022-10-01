@@ -22,8 +22,9 @@ public class CrimesDoneByCriminalDto {
 
 	@Override
 	public String toString() {
-		return "CrimesDoneByCriminalDto [dateOfCrime=" + dateOfCrime + ", criminalName=" + criminalName
-				+ ", description=" + description + ", detailDescription=" + detailDescription + "]";
+		return "CrimesDoneByCriminal"+"\n"+"====================================="
+	+"\n"+"Criminal Name:- " + criminalName+"\n"+"Date Of Crime:- " + dateOfCrime +"\n"+ 
+	"Criminal description:- " + description +"\n"+ "Criminal detailDescription:- " + detailDescription+"\n";
 	}
 	
 	public Date getDateOfCrime() {

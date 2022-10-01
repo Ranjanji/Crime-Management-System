@@ -13,8 +13,13 @@ public class CriminalArrestedDto {
 	}
 	@Override
 	public String toString() {
-		return "CriminalArrestedDto [name=" + name + ", age=" + age + ", gender=" + gender + ", mark=" + mark
-				+ ", address=" + address + ", policeStationname=" + policeStationname + "]";
+		
+		return "Criminal Name:- " + name +"\n"+
+				"Age:- " + age +"\n"+
+				"Gender:- " + gender +"\n"+
+				"Identification Mark:- " + mark +"\n"+
+				"Address:- " + address +"\n"+
+				"P.S Name where Criminal Arrested:- " + policeStationname +"\n\n";
 	}
 	public String getName() {
 		return name;
