@@ -10,8 +10,13 @@ public class CriminalsCrimeDto {
 	
 	@Override
 	public String toString() {
-		return "CriminalsCrimeDto [criminalName=" + criminalName + ", age=" + age + ", gender=" + gender + ", mark="
-				+ mark + ", address=" + address + ", description=" + description + "]";
+		
+		return "Criminal Name:- " + criminalName +"\n"+
+				"Age:- " + age +"\n"+
+				"Gender:- " + gender +"\n"+
+				"Identification Mark:- " + mark +"\n"+
+				"Address:- " + address +"\n"+
+				"Description of Crime:- " + description +"\n";
 	}
 
 	public String getCriminalName() {

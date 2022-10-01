@@ -9,12 +9,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Utility.DButil;
+
 import Dto.CrimesDoneByCriminalDto;
 import Exceptions.CrimeExceptions;
 import Bean.Crime;
 import Connection.ConnectionClass;
 
 public class CrimeDaoImp implements Crimedao{
+	@Override
+	public String registerCrime(String dateofcrime,String description,int policeStationId,
+			   String detailDescription,String status) throws CrimeExceptions{
+	
+		String message = "Not Inserted..";
+		try(Connection conn=DButil.ProvideConnection()) {
+			
+			PreparedStatement ps= conn.prepareStatement
+					("insert into crime(dateofcrime,description,policeStationId,detailDescription,status) values(?,?,?,?,?)");
+	
+			ps.setString(1, dateofcrime);
+			ps.setString(2, description);
+			ps.setInt(3, policeStationId);
+			ps.setString(4, detailDescription);
+			ps.setString(5, status);
+			
+			int x= ps.executeUpdate();
+			
+			
+			if(x > 0)
+				message = "Crime Registered Sucessfully !";
+		
+		} catch (SQLException e) {
+			message = e.getMessage();
+		}	
+		return message;
+	}
+	
 	public List<Crime> getAllCrimes()throws CrimeExceptions{
 		List<Crime> crimes = new ArrayList<>();
 		
@@ -25,11 +54,10 @@ public class CrimeDaoImp implements Crimedao{
 				int crimeId = rs.getInt("crimeid");
 				Date date = rs.getDate("dateofcrime");
 				String desc = rs.getString("description");
-				String detailDesc = rs.getString("detail_desc");
-				int areaId = rs.getInt("areaid");
+				String detailDesc = rs.getString("detailDescription");
 				int policeStationId = rs.getInt("policestationid");
 				String status = rs.getString("status");
-				crimes.add(new Crime(areaId, desc, policeStationId,detailDesc, status,date));
+				crimes.add(new Crime(crimeId, desc, policeStationId,detailDesc, status,date));
 			}
 			if(crimes.size()==0)
 				throw new CrimeExceptions("No records present");
@@ -45,14 +73,14 @@ public class CrimeDaoImp implements Crimedao{
 		List<CrimesDoneByCriminalDto> crimes = new ArrayList<>();
 		
 		try(Connection conn = ConnectionClass.getConnection()){
-			PreparedStatement ps =  conn.prepareStatement("select cr.name, c.dateofcrime, c.description, c.detail_desc from criminalsofcrime coc inner join criminal cr inner join crime c on coc.criminalid = cr.criminalid and coc.crimeid = c.crimeid where cr.criminalid=?;");
+			PreparedStatement ps =  conn.prepareStatement("select cr.name, c.dateofcrime, c.description, c.detailDescription from criminalsofcrime coc inner join criminal cr inner join crime c on coc.criminalid = cr.criminalid and coc.crimeid = c.crimeid where cr.criminalid=?;");
 			ps.setInt(1, criminalId);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				String name = rs.getString("name");
 				Date dateOfCrime = rs.getDate("dateofcrime");
 				String description = rs.getString("description");
-				String detailDesc = rs.getString("detail_desc");
+				String detailDesc = rs.getString("detailDescription");
 				crimes.add(new CrimesDoneByCriminalDto(dateOfCrime,name, description, detailDesc));
 			}
 			if(crimes.size()==0) {

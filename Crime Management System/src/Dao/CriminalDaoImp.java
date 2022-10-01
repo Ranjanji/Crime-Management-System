@@ -19,6 +19,34 @@ import Connection.ConnectionClass;
 import Exceptions.CriminalExceptions;
 
 public class CriminalDaoImp implements CriminalDao{
+	@Override
+	public String registerCriminal(String name,int age,String gender,String address,int policeStationId,
+			int policestationfirstarrestedid,String mark) throws CriminalExceptions{
+		String message = "Not Inserted..";
+		try(Connection conn=DButil.ProvideConnection()) {
+			
+			PreparedStatement ps= conn.prepareStatement
+					("insert into crime(name,age,gender,address,policeStationId,policestationfirstarrestedid,mark) values(?,?,?,?,?,?,?)");
+	
+			ps.setString(1, name);
+			ps.setInt(2, age);
+			ps.setString(3, gender);
+			ps.setString(4,address);
+			ps.setInt(5, policeStationId);
+			ps.setInt(6, policestationfirstarrestedid);
+			ps.setString(7, mark);
+			
+			int x= ps.executeUpdate();
+			
+			
+			if(x > 0)
+				message = "Criminal Registered Sucessfully !";
+		
+		} catch (SQLException e) {
+			message = e.getMessage();
+		}	
+		return message;
+	}
 
 	@Override
 	public List<Criminal> getAllCriminals() throws CriminalExceptions {
@@ -49,7 +77,7 @@ public class CriminalDaoImp implements CriminalDao{
 
 	@Override
 	public List<CriminalArrestedDto> getCriminalsArrestedBefore() throws CriminalExceptions {
-		// TODO Auto-generated method stub
+		
 		List<CriminalArrestedDto> criminals = new ArrayList<>();
 		
 		try(Connection conn=DButil.ProvideConnection()){    
@@ -89,7 +117,7 @@ public class CriminalDaoImp implements CriminalDao{
 				String address = rs.getString("address");
 				String mark = rs.getString("mark");
 				String description = rs.getString("description");
-				criminals.add(new CriminalsCrimeDto(name, age, gender, address, mark, description));
+				criminals.add(new CriminalsCrimeDto(name, age, gender, mark,address, description));
 			}
 			if(criminals.size()==0)
 				throw new CriminalExceptions("No criminals found");
