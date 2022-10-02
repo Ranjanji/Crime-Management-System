@@ -73,7 +73,8 @@ public class Main {
 		case 2:
 //			Crimedao dao = new CrimeDaoImp();
 				try {
-					List<CrimesDoneByCriminalDto> crimes =  dao.getCrimesOfACriminal(11);
+					List<Crime> crimes =  dao.getAllCrimes();
+					System.out.println("\t\t\t\tCrime List");
 					crimes.forEach(c->System.out.println(c));
 		//			System.out.println(crimes);
 				} catch (CrimeExceptions e) {
@@ -113,8 +114,11 @@ public class Main {
 			break;	
 		case 4:
 //			CriminalDao criminalDao = new CriminalDaoImp();
+			
+			System.out.println("\nEnter Criminal Id:");
+			int crimeNo=sc.nextInt();
 			try {
-				List<CriminalsCrimeDto> criminals = criminalDao.getCriminalsForCrime(101);
+				List<CriminalsCrimeDto> criminals = criminalDao.getCriminalsForCrime(crimeNo);
 				System.out.println("=====================");
 				System.out.println("# Criminal's Details #");
 				System.out.println("=====================");
@@ -129,7 +133,8 @@ public class Main {
 		case 5:
 //			VictimDao victimDao =  new VictimDaoImp();
 			try {
-				List<VictimsDto> victims =  victimDao.getVictimsOfCrime(102);
+				int crimeNo1=sc.nextInt();
+				List<VictimsDto> victims =  victimDao.getVictimsOfCrime(crimeNo1);
 				System.out.println("====================");
 				System.out.println("## Victims's List ##");
 				System.out.println("====================");
