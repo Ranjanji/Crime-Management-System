@@ -1,5 +1,5 @@
 <h2 align="center">Crime Information Management System</h2>
-<p align="center">The objective of this project is to maintain a record of all  the cyber-crime complaints reported by  the victims and provide <br> a platform for the cyber-crime bureau/police department to provide necessary solution and help to all of these problems.</p>
+<p align="center">The objective of this project is to maintain a record of all  the cyber-crime complaints reported by  the victims and provide a platform for the cyber-crime bureau/police department to provide necessary solution and help to all of these problems.</p>
 
 <h4 align="center">It is a <i>console</i> based Java application.</h4>
 <h4 align="center"> &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp Backend database: MYSQL &nbsp || &nbsp Server side Scripting: Java(JDBC Driver)</h4>
