@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Crime {
 
-	private int areaId;
+	private int crimeId;
 	private String description;
 	private int policeStationId;
 	private String detailDescription;
@@ -15,10 +15,10 @@ public class Crime {
 		
 	}
 
-	public Crime(int areaId, String description, int policeStationId, String detailDescription, String status,
+	public Crime(int crimeId, String description, int policeStationId, String detailDescription, String status,
 			Date date) {
 		super();
-		this.areaId = areaId;
+		this.crimeId = crimeId;
 		this.description = description;
 		this.policeStationId = policeStationId;
 		this.detailDescription = detailDescription;
@@ -26,12 +26,12 @@ public class Crime {
 		this.date = date;
 	}
 
-	public int getAreaId() {
-		return areaId;
+	public int getCrimeId() {
+		return crimeId;
 	}
 
-	public void setAreaId(int areaId) {
-		this.areaId = areaId;
+	public void setCrimeId(int crimeId) {
+		this.crimeId = crimeId;
 	}
 
 	public String getDescription() {
@@ -76,8 +76,13 @@ public class Crime {
 
 	@Override
 	public String toString() {
-		return "Crime [areaId=" + areaId + ", description=" + description + ", policeStationId=" + policeStationId
-				+ ", detailDescription=" + detailDescription + ", status=" + status + ", date=" + date + "]";
+		
+		return "CrimeId:- " + crimeId +"\n"+
+		"Description:- " + description +"\n"+
+				"PoliceStationId:- " + policeStationId +"\n"+
+				 "DetailDescription:- " + detailDescription +"\n"+
+				"Status:- " + status +"\n"+
+				 "Date:- " + date+"\n";
 	}
 	
 }
