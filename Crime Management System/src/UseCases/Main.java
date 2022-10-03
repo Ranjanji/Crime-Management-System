@@ -133,6 +133,7 @@ public class Main {
 		case 5:
 //			VictimDao victimDao =  new VictimDaoImp();
 			try {
+				System.out.println("\nEnter Crime Id:");
 				int crimeNo1=sc.nextInt();
 				List<VictimsDto> victims =  victimDao.getVictimsOfCrime(crimeNo1);
 				System.out.println("====================");
