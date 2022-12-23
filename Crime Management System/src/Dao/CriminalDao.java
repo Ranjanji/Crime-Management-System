@@ -18,6 +18,6 @@ public interface CriminalDao {
 	
 	//Resister the crime
 	public String registerCriminal(String name,int age,String gender,String address,
-			int policestationfirstarrestedid) throws CriminalExceptions;
+			 int policeStationId,String mark) throws CriminalExceptions;
 }
 

@@ -7,20 +7,22 @@ public class Criminal {
 	private String gender;
 	private String mark;
 	private String address;
-	private int CriminalFirstArrested;  //Police Station Id where criminal first arrested
+	private int policeStationId;  //Police Station Id where criminal first arrested
 	
 	public Criminal(){
 	}
 
-	public Criminal(String name, int age, String gender, String mark, String address, int criminalFirstArrested) {
+	public Criminal(String name, int age, String gender, String mark, String address, int policeStationId) {
 		super();
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
 		this.mark = mark;
 		this.address = address;
-		CriminalFirstArrested = criminalFirstArrested;
+		this.policeStationId = policeStationId;
 	}
+
+
 
 	public String getName() {
 		return name;
@@ -62,19 +64,14 @@ public class Criminal {
 		this.address = address;
 	}
 
-	public int getCriminalFirstArrested() {
-		return CriminalFirstArrested;
-	}
-
-	public void setCriminalFirstArrested(int criminalFirstArrested) {
-		CriminalFirstArrested = criminalFirstArrested;
-	}
-
 	@Override
 	public String toString() {
 		return "Criminal [name=" + name + ", age=" + age + ", gender=" + gender + ", mark=" + mark + ", address="
-				+ address + ", CriminalFirstArrested=" + CriminalFirstArrested + "]";
+				+ address + ", policeStationId=" + policeStationId + "]";
 	}
+
+
+	
 	
 	
 	
