@@ -7,7 +7,7 @@ public class Criminal {
 	private String gender;
 	private String mark;
 	private String address;
-	private int CriminalFirstArrested;
+	private int CriminalFirstArrested;  //Police Station Id where criminal first arrested
 	
 	public Criminal(){
 	}

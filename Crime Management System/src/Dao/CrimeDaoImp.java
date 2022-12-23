@@ -16,6 +16,7 @@ import Bean.Crime;
 import Connection.ConnectionClass;
 
 public class CrimeDaoImp implements Crimedao{
+	//Resister the crime
 	@Override
 	public String registerCrime(String dateofcrime,String description,int policeStationId,
 			   String detailDescription,String status) throws CrimeExceptions{
@@ -44,6 +45,7 @@ public class CrimeDaoImp implements Crimedao{
 		return message;
 	}
 	
+	//Get all Crime List
 	public List<Crime> getAllCrimes()throws CrimeExceptions{
 		List<Crime> crimes = new ArrayList<>();
 		
@@ -67,6 +69,7 @@ public class CrimeDaoImp implements Crimedao{
 		return crimes;
 	}
 
+    //Get List of Crimes of Criminal list
 	@Override
 	public List<CrimesDoneByCriminalDto> getCrimesOfACriminal(int criminalId) throws CrimeExceptions {
 		

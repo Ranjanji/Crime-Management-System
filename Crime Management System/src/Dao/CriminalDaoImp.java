@@ -19,22 +19,22 @@ import Connection.ConnectionClass;
 import Exceptions.CriminalExceptions;
 
 public class CriminalDaoImp implements CriminalDao{
+	//Resister the crime
 	@Override
-	public String registerCriminal(String name,int age,String gender,String address,int policeStationId,
-			int policestationfirstarrestedid,String mark) throws CriminalExceptions{
+	public String registerCriminal(String name,int age,String gender,String address,
+			int policestationfirstarrestedid) throws CriminalExceptions{
 		String message = "Not Inserted..";
 		try(Connection conn=DButil.ProvideConnection()) {
 			
 			PreparedStatement ps= conn.prepareStatement
-					("insert into crime(name,age,gender,address,policeStationId,policestationfirstarrestedid,mark) values(?,?,?,?,?,?,?)");
+					("insert into criminal(name,age,gender,address,policestationfirstarrestedid) values(?,?,?,?,?)");
 	
 			ps.setString(1, name);
 			ps.setInt(2, age);
 			ps.setString(3, gender);
 			ps.setString(4,address);
-			ps.setInt(5, policeStationId);
-			ps.setInt(6, policestationfirstarrestedid);
-			ps.setString(7, mark);
+			ps.setInt(5, policestationfirstarrestedid);
+			
 			
 			int x= ps.executeUpdate();
 			

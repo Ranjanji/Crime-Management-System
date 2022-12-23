@@ -53,10 +53,12 @@ public class Main {
 			String description=sc.next();
 			System.out.println("Enter Police Station id");
 			int psId=sc.nextInt();
+			sc.nextLine();
 			System.out.println("Enter Detail Description of Crime");
-			String detailDescription=sc.next();
+			String detailDescription=sc.nextLine();
 			System.out.println("Enter Status of Crime");
 			String status=sc.next();
+			
 			String result=null;
 			try {
 				 result=dao.registerCrime(dateofcrime,description,psId,
@@ -91,19 +93,21 @@ public class Main {
 			int age=sc.nextInt();
 			System.out.println("Enter Criminal's Gender");
 			String gender=sc.next();
+			sc.nextLine();
 			System.out.println("Enter Criminal's Address");
-			String address=sc.next();
-			System.out.println("Enter Police Station id");
-			int policeStationId=sc.nextInt();
+			String address=sc.nextLine();
+//			System.out.println("Enter Police Station id");
+//			int policeStationId=sc.nextInt();
 			System.out.println("Enter Police Station's ID (first arrested criminal)");
 			int policestationfirstarrestedid=sc.nextInt();
-			System.out.println("Enter Identification Mark of Criminal");
-			String mark=sc.next();
+			sc.nextLine();
+//			System.out.println("Enter Identification Mark of Criminal");
+//			String mark=sc.next();
 			String result1=null;
 
 				 try {
-					result1=criminalDao.registerCriminal(name,age,gender,address,policeStationId,
-								policestationfirstarrestedid, mark);
+					result1=criminalDao.registerCriminal(name,age,gender,address,
+								policestationfirstarrestedid);
 				} catch (CriminalExceptions e) {
 					
 //					e.printStackTrace();
