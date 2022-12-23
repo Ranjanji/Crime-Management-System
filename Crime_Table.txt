@@ -15,7 +15,6 @@ create table Criminal(
     gender varchar(10) not null,
     address varchar(10) not null,
 	policeStationId  int not null,
-	policestationfirstarrestedid int not null,
 	mark varchar(255) not null
 );
 insert into criminal values(10 ,'Chaman',20,'Male','Chennai',12,12,'cut on face');

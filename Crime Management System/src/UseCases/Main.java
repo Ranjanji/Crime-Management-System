@@ -46,75 +46,69 @@ public class Main {
 			VictimDao victimDao =  new VictimDaoImp();
 		switch(x) {	
 		case 1:
-//			Crimedao dao = new CrimeDaoImp();
+
 			System.out.println("Enter Date of Crime");
 			String dateofcrime=sc.next();
 			System.out.println("Enter Crime Descriptions (Theft/Murder/Robbery/Extortion etc)");
 			String description=sc.next();
 			System.out.println("Enter Police Station id");
 			int psId=sc.nextInt();
+			sc.nextLine();
 			System.out.println("Enter Detail Description of Crime");
-			String detailDescription=sc.next();
+			String detailDescription=sc.nextLine();
 			System.out.println("Enter Status of Crime");
 			String status=sc.next();
+			
 			String result=null;
 			try {
 				 result=dao.registerCrime(dateofcrime,description,psId,
-					   detailDescription,status);
-				
-			}
+					   detailDescription,status);	
+			    }
 			catch (CrimeExceptions e) {
-				//			e.printStackTrace();
-				System.out.println(e.getMessage());
-							
+				System.out.println(e.getMessage());				
 			}
 			System.out.println(result);
 			break;
 		case 2:
-//			Crimedao dao = new CrimeDaoImp();
-				try {
-					List<Crime> crimes =  dao.getAllCrimes();
-					System.out.println("\t\t\t\tCrime List");
-					crimes.forEach(c->System.out.println(c));
-		//			System.out.println(crimes);
-				} catch (CrimeExceptions e) {
-		//			e.printStackTrace();
-					System.out.println(e.getMessage());
-					
-				}
-				break;
+			try {
+				List<Crime> crimes =  dao.getAllCrimes();
+				System.out.println("\t\t\t\tCrime List");
+				crimes.forEach(c->System.out.println(c));
+			    }
+			catch (CrimeExceptions e) {
+				System.out.println(e.getMessage());	
+			}
+			break;
 		case 3:
-//			CriminalDao criminalDao = new CriminalDaoImp();
 			System.out.println("Enter Criminal Name");
 			String name=sc.next();
 			System.out.println("Enter Criminal's Age");
 			int age=sc.nextInt();
 			System.out.println("Enter Criminal's Gender");
 			String gender=sc.next();
+			sc.nextLine();
 			System.out.println("Enter Criminal's Address");
-			String address=sc.next();
-			System.out.println("Enter Police Station id");
-			int policeStationId=sc.nextInt();
+			String address=sc.nextLine();
 			System.out.println("Enter Police Station's ID (first arrested criminal)");
 			int policestationfirstarrestedid=sc.nextInt();
-			System.out.println("Enter Identification Mark of Criminal");
-			String mark=sc.next();
+			sc.nextLine();
+			System.out.println("Enter Criminal's Mark");
+			String mark=sc.nextLine();
 			String result1=null;
 
-				 try {
-					result1=criminalDao.registerCriminal(name,age,gender,address,policeStationId,
-								policestationfirstarrestedid, mark);
-				} catch (CriminalExceptions e) {
-					
-//					e.printStackTrace();
-					System.out.println(e.getMessage());
-				}
+			try {
+			     result1=criminalDao.registerCriminal(name,age,gender,address,
+							policestationfirstarrestedid,mark);
+			} 
+			catch (CriminalExceptions e) {
+	
+			     System.out.println(e.getMessage());
+			}
 			
 			System.out.println(result1);
 			break;	
 		case 4:
-//			CriminalDao criminalDao = new CriminalDaoImp();
-			
+
 			System.out.println("\nEnter Criminal Id:");
 			int crimeNo=sc.nextInt();
 			try {
@@ -123,15 +117,12 @@ public class Main {
 				System.out.println("# Criminal's Details #");
 				System.out.println("=====================");
 				criminals.forEach(c->System.out.println(c));
-				
-//				System.out.println(criminals);
-			} catch (CriminalExceptions e) {
-//				e.printStackTrace();
+			} 
+			catch (CriminalExceptions e) {
 				System.out.println(e.getMessage());
 			}
 			break;
 		case 5:
-//			VictimDao victimDao =  new VictimDaoImp();
 			try {
 				int crimeNo1=sc.nextInt();
 				List<VictimsDto> victims =  victimDao.getVictimsOfCrime(crimeNo1);
@@ -144,14 +135,13 @@ public class Main {
 					System.out.println(c);
 					countVictim++;
 					});
-//				System.out.println(victims);
-			} catch (VictimExceptions e) {
-				e.printStackTrace();
+				
+			} 
+			catch (VictimExceptions e) {
 				System.out.println(e.getMessage());
 			}
 			break;
 		case 6:
-//			Crimedao dao = new CrimeDaoImp();
 		try {
 			List<Crime> crimes =  dao.getAllCrimes();
 			
@@ -163,9 +153,7 @@ public class Main {
 			System.out.println("Not Solved :- "+countStatus);
 //			System.out.println(crimes);
 		} catch (CrimeExceptions e) {
-//			e.printStackTrace();
-			System.out.println(e.getMessage());
-			
+			System.out.println(e.getMessage());	
 		}
 		break;
 		case 7:

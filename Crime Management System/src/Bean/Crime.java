@@ -15,8 +15,8 @@ public class Crime {
 		
 	}
 
-	public Crime(int crimeId, String description, int policeStationId, String detailDescription, String status,
-			Date date) {
+	public Crime(int crimeId, String description, int policeStationId, 
+			String detailDescription, String status,Date date) {
 		super();
 		this.crimeId = crimeId;
 		this.description = description;

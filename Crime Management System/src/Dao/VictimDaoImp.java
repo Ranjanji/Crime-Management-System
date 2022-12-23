@@ -13,6 +13,7 @@ import Exceptions.VictimExceptions;
 
 public class VictimDaoImp implements VictimDao{
 
+	//Get list of Victims
 	@Override
 	public List<VictimsDto> getVictimsOfCrime(int crimeId) throws VictimExceptions {
 		
