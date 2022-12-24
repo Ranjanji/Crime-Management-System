@@ -16,6 +16,12 @@
 * Crime
 * Criminal
 * Victim
+* Police Station
+* Criminals of Crime (foreign key)
+* Victim of Crime (foreign key)
+
+## ER Diagram
+![App Screenshot](https://github.com/Ranjanji/dapper-spade-5134/blob/main/db_schema.png)
 
 ## Tech Stacks
 * Java
