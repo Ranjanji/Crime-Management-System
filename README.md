@@ -16,6 +16,12 @@
 * Crime
 * Criminal
 * Victim
+* Police Station
+* Criminals of Crime (foreign key)
+* Victim of Crime (foreign key)
+
+## ER Diagram
+![App Screenshot](https://github.com/Ranjanji/pink-pot-9002/blob/main/Er-Diagram.png)
 
 ## Tech Stacks
 * Java
