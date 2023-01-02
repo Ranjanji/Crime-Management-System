@@ -1,5 +1,5 @@
 <a name="readme-top"></a> 
-<h1><img align="center" height="150" src="https://github.com/Ranjanji/pink-pot-9002/blob/main/Crime%20logo.png">Crime Information Management System</h1>
+<h1><img align="center" height="150" src="https://github.com/Ranjanji/pink-pot-9002/blob/main/Crime%20logo.png">Crime Management System</h1>
 <h2 align="center"></h2>
 <p align="center">The objective of this project is to maintain a record of all  the cyber-crime complaints reported by  the victims and provide a platform for the cyber-crime bureau/police department to provide necessary solution and help to all of these problems.</p>
 
